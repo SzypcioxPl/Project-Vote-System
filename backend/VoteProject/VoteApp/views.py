@@ -46,7 +46,7 @@ def login(request):
         else:
             return Response({'error': 'Invalid login or password'}, status=status.HTTP_401_UNAUTHORIZED)
     except User.DoesNotExist:
-        return Response({'error': 'Invalid login or password'}, status=status.HTTP_401_UNAUTHORIZED)
+        return Response({'error': 'User does not exist'}, status=status.HTTP_401_UNAUTHORIZED)
 
 
 @api_view(['POST'])
