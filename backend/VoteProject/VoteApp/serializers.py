@@ -24,7 +24,7 @@ class UserSerializer(serializers.ModelSerializer):
 class ProjectSerializer(serializers.ModelSerializer):
     class Meta:
         model = Project
-        fields = ['PID', 'name', 'date_start', 'date_end', 'description', 'vote_scale']
+        fields = '__all__' #['PID', 'name', 'date_start', 'date_end', 'description', 'vote_scale']
 
 
 class VoteSerializer(serializers.ModelSerializer):

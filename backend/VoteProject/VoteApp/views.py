@@ -4,6 +4,7 @@ from rest_framework import status
 from .models import User, Project
 from .serializers import UserSerializer, ProjectSerializer, VoteSerializer
 from rest_framework.decorators import api_view
+from django.http import JsonResponse
 
 
 @api_view(['POST'])
@@ -95,3 +96,50 @@ def vote(request):
         return Response({'message': 'Project created successfully', 'VID': vote.VID}, status=status.HTTP_201_CREATED)
     
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+@api_view(['GET'])
+def get_stats(request, PID):
+    pass
+
+
+@api_view(['GET'])
+def get_project_data(request, pid):
+    '''
+    if pid == PID:
+        {
+            "PID" = <int: project id>,
+            "name" = <string: project name>,
+            "date_start" = <string: YYYY-MM-DD>",
+            "date_end" = <string: YYYY-MM-DD>",
+            "description" = <string: project decription>,
+            "vote_scale" = <int: 5 || 10 || 15>
+        }
+
+    elif pid == "all":
+    
+    '''
+
+
+    if not pid == 'all':
+        try:
+            project = Project.objects.get(PID=pid)
+        except Project.DoesNotExist:
+            return Response({'error': 'Project does not exist'}, status=status.HTTP_404_NOT_FOUND)
+        except Exception as e:
+            return Response({'error': 'Unknown error'}, status=status.HTTP_400_BAD_REQUEST)
+        
+        serializer = ProjectSerializer(project)
+        return JsonResponse(serializer.data)
+    
+    else:
+        projects = Project.objects.all()
+        serializer = ProjectSerializer(projects, many=True)
+        projects_dict = {project.pop('PID'): project for project in serializer.data}
+
+        return JsonResponse(projects_dict, safe=False) 
+
+
+@api_view(['GET'])
+def get_report(request, pid):
+    pass
