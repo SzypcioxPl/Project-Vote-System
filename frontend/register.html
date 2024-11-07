@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rejestracja - System Głosowania</title>
+    <link rel="stylesheet" href="register.css">
+</head>
+<body>
+    <header>
+        <div class="logo-bar">
+            <h1>FIRMA ●●●</h1>
+        </div>
+    </header>
+
+    <div class="registration-container">
+        <h2>Zarejestruj się, aby móc głosować na projekty!</h2>
+        <div class="registration-box">
+            <form id="registrationForm">
+                <label for="name">Imię:</label>
+                <input type="text" id="name" name="name" placeholder="Wprowadź imię" required>
+
+                <label for="surname">Nazwisko:</label>
+                <input type="text" id="surname" name="surname" placeholder="Wprowadź nazwisko" required>
+
+                <label for="login">Login:</label>
+                <input type="text" id="login" name="login" placeholder="Wprowadź login" required>
+
+                <label for="password">Hasło:</label>
+                <input type="password" id="password" name="password" placeholder="Wprowadź hasło" required>
+
+                <label for="role">Typ użytkownika:</label>
+                <select id="role" name="role" required>
+                    <option value="user">Użytkownik</option>
+                    <option value="admin">Administrator</option>
+                </select>
+
+                <button type="submit">Zarejestruj</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="register.js"></script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Głosowanie - System Głosowania</title>
+    <link rel="stylesheet" href="vote.css">
+</head>
+<body>
+    <header>
+        <div class="logo-bar">
+            <h1>FIRMA ●●●</h1>
+        </div>
+    </header>
+
+    <div class="voting-header">
+        <h2>GŁOSOWANIE TRWA!</h2>
+        <p>OCEŃ, KTÓRY PROJEKT NAJBARDZIEJ CI SIĘ PODOBA!</p>
+    </div>
+
+    <div class="voting-container">
+        <div class="arrow up" onclick="showPreviousProject()">&#9650;</div>
+
+        <div class="project-card" id="projectCard">
+            <!-- Dane projektu będą dynamicznie wstawiane przez JavaScript -->
+        </div>
+
+        <div class="arrow down" onclick="showNextProject()">&#9660;</div>
+    </div>
+
+    <div class="voting-footer">
+        <p>CZAS DO KOŃCA GŁOSOWANIA:</p>
+        <p id="timeRemaining">00:00:00</p>
+        <button onclick="submitVote()">GŁOSUJ</button>
+    </div>
+
+    <script src="vote.js"></script>
+</body>
+</html>

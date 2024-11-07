@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dodaj Projekt - System Głosowania</title>
+    <link rel="stylesheet" href="form.css">
+</head>
+<body>
+    <header>
+        <div class="logo-bar">
+            <h1>FIRMA ●●●</h1>
+        </div>
+    </header>
+    
+    <h2>ZAGŁOSUJ NA SWÓJ ULUBIONY PROJEKT JUŻ TERAZ!</h2>
+    
+    <div class="form-container">
+        <div class="form-box">
+            <form id="projectForm">
+                <label for="name">NAZWA:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="date_start">CZAS OD:</label>
+                <input type="date" id="date_start" name="date_start" required>
+
+                <label for="date_end">CZAS DO:</label>
+                <input type="date" id="date_end" name="date_end" required>
+
+                <label>SKALA:</label>
+                <div class="scale-options">
+                    <input type="radio" id="scale_5" name="vote_scale" value="5" checked>
+                    <label for="scale_5">1-5</label>
+                    <input type="radio" id="scale_10" name="vote_scale" value="10">
+                    <label for="scale_10">0-5</label>
+                    <input type="radio" id="scale_15" name="vote_scale" value="15">
+                    <label for="scale_15">0-10</label>
+                </div>
+
+                <label for="status">STATUS:</label>
+                <select id="status" name="status" required>
+                    <option value="menu_item">Menu item</option>
+                    <!-- Dodaj inne opcje statusu, jeśli są wymagane -->
+                </select>
+
+                <div class="button-container">
+                    <button type="submit">WYŚLIJ</button>
+                    <button type="button" onclick="downloadReport()">POBIERZ RAPORT</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
